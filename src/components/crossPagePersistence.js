@@ -1,5 +1,5 @@
 
-function get_session_data_item(key) {
+export function get_session_data_item(key) {
     let sesion_data;
     try {
         sesion_data = window.sessionStorage.getItem("session_data");
@@ -16,7 +16,7 @@ function get_session_data_item(key) {
     return sesion_data[key];
 }
 
-function set_session_data_item(key, data) {
+export function set_session_data_item(key, data) {
     let sesion_data;
     try {
         sesion_data = window.sessionStorage.getItem("session_data");
