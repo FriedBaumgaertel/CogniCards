@@ -1,10 +1,5 @@
 import OpenAI from "openai"; //das hier muss noch in vue umgeschachtelt werden
 
-const openai = new OpenAI({ // NOT FOR BROWSER ENVIRONMENT; only prototypes!!!!
-  apiKey: "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",
-  dangerouslyAllowBrowser: true,
-});
-
 export function read_input_data(event) { // die funktionmuss evtl. in die input validation
   const callHeader = "Give me a fitting title and a short recap for each of the major points of the following text and keep this structure:{ 1:{title: <title1>, body: <recap1>},...}:"
 
@@ -31,6 +26,10 @@ export function read_input_data(event) { // die funktionmuss evtl. in die input 
 }
 
 async function call_to_openAI_api(text) { //check tokens here: https://platform.openai.com/tokenizer
+  let openai = new OpenAI({ // NOT FOR BROWSER ENVIRONMENT; only prototypes!!!!
+    apiKey: "", //hier muss noch n input hin
+    dangerouslyAllowBrowser: true,
+  });
 
   console.log(text);
   const chatCompletion = await openai.chat.completions.create({
