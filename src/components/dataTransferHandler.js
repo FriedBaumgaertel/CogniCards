@@ -18,8 +18,6 @@ const tokens = {
 
 // // key und jsonstring weglasse, das kommt über die url automatisch
 const dummy_stack = {
-    "key": "dummy_stack",
-    "jsonstring": {
         "description": "dummy description of a stack",
         "karten": [
             {
@@ -32,37 +30,32 @@ const dummy_stack = {
             }
         ],
     }
-}
+
 const dummy_user = {
-    "key": "dummy_user",
-    "jsonstring": {
         "passwort": "dummy_password",
-        "gruppen": ["dummy_group"],
+        "gruppen": ["dummy"],
         "zugriffe":
             [
                 {
-                    "token": "dummy_stack",
+                    "token": "dummy",
                     "name": "dummy stack name",
                     "anzahl_zuschauer": 0,
                 }
             ]
     }
-}
+
 const dummy_group = {
-    "key": "dummy_group",
-    "jsonstring": {
-        "mitglieder": ["dummy_user"],
-        "admins": ["dummy_user"],
+        "mitglieder": ["dummy"],
+        "admins": ["dummy"],
         "zugriffe":
             [
                 {
-                    "token": "dummy_stack",
+                    "token": "dummy",
                     "name": "dummy stack name",
                     "anzahl_zuschauer": 0,
                 }
             ]
     }
-}
 
 const dummies = {
     "stacks": dummy_stack,
@@ -90,7 +83,7 @@ export function postCloudstore(base_url, data) { //auth probleme
 
     console.log(url);
 
-    axios.post(url).then(response => {
+    axios.get(url).then(response => {
         console.log(`${base_url}:`);
         console.log(response);
     }).catch(error => {
