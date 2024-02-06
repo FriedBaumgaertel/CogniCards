@@ -16,7 +16,6 @@ const tokens = {
     "groups": "YnkJQ42vPBFoJOnJHt4Kfohq_MM_",
 }
 
-// // key und jsonstring weglasse, das kommt über die url automatisch
 const dummy_stack = {
         "description": "dummy description of a stack",
         "karten": [
