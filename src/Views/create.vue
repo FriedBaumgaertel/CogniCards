@@ -1,4 +1,4 @@
 <template>
 
-    <div>hallo maartin is ne ratte</div>
+    <div>hallo maartin is ne rattee</div>
 </template>

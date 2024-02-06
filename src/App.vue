@@ -5,10 +5,10 @@
     <!-- App-Bar mit Menüsymbol und Titel -->
     <v-app-bar app class="white-background" rounded>
       <div class="flexbox">
-        <v-btn text link to="/Generator">
+        <v-btn text link to="/Generator" :class="{ 'font-bold': isActive('/Generator') }">
           Generator
         </v-btn>
-          <v-btn text link to="/My_Deck">
+          <v-btn text link to="/My_Deck" :class="{ 'font-bold': isActive('/My_Deck') }">
           My Deck
         </v-btn>
         
@@ -17,10 +17,10 @@
           <img src="/Logo.png" alt="Logo" class="logo"/>
         </v-btn>
         
-        <v-btn text link to="/Groups">
+        <v-btn text link to="/Groups" :class="{ 'font-bold': isActive('/Groups') }">
           Groups
         </v-btn>
-        <v-btn text link to="/Account">
+        <v-btn text link to="/Account" :class="{ 'font-bold': isActive('/Account') }">
           Account
         </v-btn>
       </div>
@@ -38,6 +38,18 @@
     </VMain>
   </VLayout>
 </template>
+
+<script>
+export default {
+  methods: {
+    isActive(route) {
+      return this.$route.path === route;
+    }
+  }
+};
+</script>
+
+
 
 <script setup>
 //imports
@@ -71,6 +83,7 @@ const router = useRouter()
 const handleNavigation = () => {
   drawer.value = false
 }
+
 
 
 </script>
@@ -166,4 +179,10 @@ const handleNavigation = () => {
   background-color: #008FE0;
   color: white;
 }
+
+.font-bold {
+  font-weight: bold;
+}
+
+
 </style>
