@@ -13,7 +13,7 @@
         </v-btn>
         
         
-        <v-btn text link to="/Landingpage" class="logo-button">
+        <v-btn text link to="/home" class="logo-button">
           <img src="/Logo.png" alt="Logo" class="logo"/>
         </v-btn>
         
@@ -25,7 +25,7 @@
         </v-btn>
       </div>
 
-        <v-btn rounded dark  class="sign-in-button">
+        <v-btn link to="/Sign-in" rounded dark class="sign-in-button"  >
           Sign In
         </v-btn>
     </v-app-bar>
