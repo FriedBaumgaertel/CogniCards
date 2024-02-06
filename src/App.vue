@@ -1,76 +1,38 @@
 <template>
-  <!-- Hintergrundcontainer mit unterschiedlichen Hintergrundbildern für verschiedene Bildschirmgrößen -->
-  <div class="background-container">
-      <div v-if="isMini" class ="background-small"></div>
-      <div v-else class="background-image"></div>
-      
-  </div>
-
-  <!-- Hauptlayout mit App-Bar, Navigationsleiste, Hauptinhalt und dynamischer Routeransicht -->
+  
   <VLayout row wrap rounded rounded-md align-start>
 
     <!-- App-Bar mit Menüsymbol und Titel -->
-    <VAppBar rounded class="white-background">
-      <VAppBarNavIcon variant="text" @click.stop="drawer = !drawer"/>
-
-      <!-- Toolbar Titel -->
-      <div class="titel-container"> 
-        <v-toolbar-title class="titel-schriftzug">CatMemeGenerator</v-toolbar-title>
+    <v-app-bar app class="white-background" rounded>
+      <div class="flexbox">
+        <v-btn text link to="/Generator">
+          Generator
+        </v-btn>
+          <v-btn text link to="/My_Deck">
+          My Deck
+        </v-btn>
+        
+        
+        <v-btn text link to="/Landingpage" class="logo-button">
+          <img src="/Logo.png" alt="Logo" class="logo"/>
+        </v-btn>
+        
+        <v-btn text link to="/Groups">
+          Groups
+        </v-btn>
+        <v-btn text link to="/Account">
+          Account
+        </v-btn>
       </div>
-    </VAppBar>
 
-    <!-- Navigationsleiste (Drawer) für kleine Bildschirme -->
-    <v-navigation-drawer
-      v-if="isMini"
-      v-model="drawer"
-      location="top"
-      temporary
-      class="white-background"
-    >
+        <v-btn rounded dark  class="sign-in-button">
+          Sign In
+        </v-btn>
+    </v-app-bar>
 
-      <v-list>
-        <!-- Navigationspunkte-->
-        <VListItem prepend-icon="mdi-home" link to="/home" @click="handleNavigation">
-          Home
-        </VListItem>
-        <VListItem prepend-icon="mdi-image" link to="/MeowsterpeaceGallery" @click="handleNavigation">
-          Meowsterpeace Gallery
-        </VListItem>
-        <VListItem prepend-icon="mdi-paw" link to="/CatMemeGenerator" @click="handleNavigation">
-          CatMemeGenerator
-        </VListItem>
-        <VListItem prepend-icon="mdi-help-circle" link to="/CommonCuriosities" @click="handleNavigation">
-          FAQ
-        </VListItem>
-        </v-list>
-      </v-navigation-drawer>
+    
 
-    <!-- Navigationsleiste (Drawer) für größere Bildschirme -->
-    <VNavigationDrawer v-else v-model="drawer" class="white-background">
-      <VList>
-        <!-- Navigationspunkte -->
-        <VListItem prepend-icon="mdi-home" link to="/home" @click="handleNavigation">
-          Home
-        </VListItem>
-        <VListItem prepend-icon="mdi-image" link to="/MeowsterpeaceGallery" @click="handleNavigation">
-          Meowsterpeace Gallery
-        </VListItem>
-        <VListItem prepend-icon="mdi-paw" link to="/CatMemeGenerator" @click="handleNavigation">
-          CatMemeGenerator
-        </VListItem>
-        <VListItem prepend-icon="mdi-help-circle" link to="/CommonCuriosities" @click="handleNavigation">
-          FAQ
-        </VListItem>
-      </VList>
-
-      <!-- Logo am unteren Ende -->
-      <v-divider></v-divider>
-      <v-row justify="center" align="center" class="logo-container">
-        <img src="@/assets/Logos/cat-meme-generator_logo.png" alt="Logo" class="logo"/>
-      </v-row>
-    </VNavigationDrawer>
-
-    <!-- Hauptinhalt (Router-Ansicht) -->
+    
     <VMain>
       <RouterView></RouterView>
     </VMain>
@@ -149,7 +111,8 @@ const handleNavigation = () => {
 
 /*Style für Logo */
 .logo {
-  width: 175px;
+  width: 55px;
+  
 }
 
 /*Style für Container des Hintergrundbildes */
@@ -182,4 +145,25 @@ const handleNavigation = () => {
   height: 100%;
 }
 
+
+.flexbox{
+  display: flex;
+  justify-content: space-around;
+  width: 80vw;
+  align-items: center;
+  margin-left: 10vw;
+}
+
+.logo-button {
+  padding: 0; /* Entfernt den zusätzlichen Innenabstand des Buttons */
+  display: flex;
+  align-items: center; /* Zentriert das Bild vertikal */
+}
+
+
+
+.sign-in-button {
+  background-color: #008FE0;
+  color: white;
+}
 </style>
