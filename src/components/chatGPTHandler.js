@@ -26,8 +26,12 @@ export function read_input_data(event) { // die funktionmuss evtl. in die input 
 }
 
 async function call_to_openAI_api(text) { //check tokens here: https://platform.openai.com/tokenizer
+  let key = prompt("Enter a valid OpenAI token:");
+  if(!key){
+    return null;
+  }
   let openai = new OpenAI({ // NOT FOR BROWSER ENVIRONMENT; only prototypes!!!!
-    apiKey: "", //hier muss noch n input hin
+    apiKey: key, //hier muss noch n input hin
     dangerouslyAllowBrowser: true,
   });
 
