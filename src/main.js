@@ -1,4 +1,5 @@
 import './assets/main.css'
+import "./style.css"
 // Importieren der notwendigen Funktionen aus Vue und Vue Router
 import { createApp } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
