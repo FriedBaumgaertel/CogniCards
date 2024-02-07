@@ -25,7 +25,7 @@
         </v-btn>
       </div>
 
-        <v-btn link to="/Sign-in" rounded dark class="sign-in-button"  >
+        <v-btn text link to="/Sign-in" rounded dark class="sign-in-button"  >
           Sign In
         </v-btn>
     </v-app-bar>
