@@ -31,8 +31,10 @@ import {read_input_data} from "../components/chatGPTHandler.js";
 import {onMounted, ref} from 'vue'
 
 let deckTitle = ref('Deck Title');
+let deckDescription = ref('Description')
 onMounted(() => {
-  deckTitle.value = localStorage.getItem('title') || 'Deck Title';
+  deckTitle.value = sessionStorage.getItem('titel') || 'Deck Title';
+  deckDescription.value = sessionStorage.getItem("description") || "Description";
 });
 let generate = ref(false);
 
@@ -68,7 +70,7 @@ const handleFileSelect = (event) => {
 const createDeck = () => {
   if(files.value){
       console.log(files.value);
-  read_input_data(files.value,"first A340 Page","this is completetly generated");
+  read_input_data(files.value,deckTitle.value,deckDescription.value);
   }
 }
 </script>
