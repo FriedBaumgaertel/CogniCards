@@ -33,13 +33,14 @@ let generate = ref(false);
 
 const dragging = ref(false);
 const fileInput = ref(null);
+const files = ref(null);
 
 const handleDragOver = (event) => {
   event.preventDefault(); // This is necessary to allow for a drop
 };
 
 const handleDrop = (event) => {
-  read_input_data(event);
+  files.value = event.dataTransfer.files;
   dragging.value = false; // Reset dragging state
 };
 
@@ -56,10 +57,11 @@ const openFileDialog = () => {
 };
 
 const handleFileSelect = (event) => {
-  fileInput.value = event.dataTransfer.files;
+  files.value = event.target.files;
 };
 
 const createDeck = () => {
-  read_input_data(fileInput.value);
+  console.log(files.value);
+  read_input_data(files.value,"dummy title","dummy description");
 }
 </script>
