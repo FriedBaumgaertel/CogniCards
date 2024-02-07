@@ -1,16 +1,10 @@
 <template>
-
-  <div class = "center-container">
-    <Card
-    class = "card-container"
-        :front="currentCard.vorderseite"
-        :back="currentCard.rueckseite"
-        :flipped="flipped"
-        @flip="flipped = !flipped"
-    />
+  <div class="center-container">
+    <Card class="card-container" :front="currentCard.vorderseite" :back="currentCard.rueckseite" :flipped="flipped"
+      @flip="flipped = !flipped" />
     <button @click="goToNextCard">Next</button>
-  </div>  
-
+    <div>{{ currentIndex + 1 }}/{{ cards.length }}</div>
+  </div>
 </template>
 
 <script>
@@ -44,18 +38,18 @@ export default {
       }
       this.flipped = false; // Reset the flip state for the new card
     },
-    
+
   },
-  mounted(){
-      let token = sessionStorage.getItem("currentToken");
-      console.log(token)
-      fetchCloudstore("stacks",token).then((stack)=>{
-        if(stack.karten.length > 0){
-          this.cards = stack.karten;
-        }
-        console.log(stack.karten);
-      });
-    }
+  mounted() {
+    let token = sessionStorage.getItem("currentToken");
+    console.log(token)
+    fetchCloudstore("stacks", token).then((stack) => {
+      if (stack.karten.length > 0) {
+        this.cards = stack.karten;
+      }
+      console.log(stack.karten);
+    });
+  }
 }
 </script>
 
@@ -64,7 +58,8 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Adjust as needed */
+  height: 100vh;
+  /* Adjust as needed */
 }
 
 .card-container {
