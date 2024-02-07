@@ -22,7 +22,7 @@
     </div>
     <div class="flex flex-row justify-between">
       <div></div>
-      <button class="bg-blue rounded-full">Create</button>
+      <button @click="createDeck" class="bg-blue rounded-full">Create</button>
     </div>
   </div>
 </template>
@@ -56,6 +56,10 @@ const openFileDialog = () => {
 };
 
 const handleFileSelect = (event) => {
-  read_input_data(event.dataTransfer.files);
+  fileInput.value = event.dataTransfer.files;
 };
+
+const createDeck = () => {
+  read_input_data(fileInput.value);
+}
 </script>
