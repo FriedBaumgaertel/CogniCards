@@ -14,9 +14,11 @@
         @drop.prevent="handleDrop"
         @dragenter.prevent="dragEnter"
         @dragleave.prevent="dragLeave"
+        @click="openFileDialog"
     >
       <p v-if="!dragging">Drag and drop a file here, or click to select a file.</p>
       <p v-else>Release to drop the file.</p>
+      <input type="file" ref="fileInput" @change="handleFileSelect" class="hidden" />
     </div>
     <div class="flex flex-row justify-between">
       <div></div>
@@ -25,21 +27,19 @@
   </div>
 </template>
 <script setup>
+import {read_input_data} from "../components/chatGPTHandler.js";
 import { ref } from 'vue'
 let generate = ref(false);
 
 const dragging = ref(false);
+const fileInput = ref(null);
 
 const handleDragOver = (event) => {
   event.preventDefault(); // This is necessary to allow for a drop
 };
 
 const handleDrop = (event) => {
-  const files = event.dataTransfer.files;
-  if (files.length > 0) {
-    // Process the dropped files here
-    console.log(files[0]); // Example: log the first file
-  }
+  read_input_data(event);
   dragging.value = false; // Reset dragging state
 };
 
@@ -49,5 +49,13 @@ const dragEnter = () => {
 
 const dragLeave = () => {
   dragging.value = false; // Reset visual feedback
+};
+
+const openFileDialog = () => {
+  fileInput.value.click(); // Programmatically open the file dialog
+};
+
+const handleFileSelect = (event) => {
+  read_input_data(event.dataTransfer.files);
 };
 </script>
