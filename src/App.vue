@@ -5,7 +5,7 @@
     <!-- App-Bar mit Menüsymbol und Titel -->
     <v-app-bar app class="white-background" rounded>
       <div class="flexbox">
-        <v-btn text link to="/Generator" :class="{ 'font-bold': isActive('/Generator') }">
+        <v-btn text link to="/Generator" :class="{ 'font-bold': isActive('/Generator') }" class="shadow-none">
           Generator
         </v-btn>
           <v-btn text link to="/My_Deck" :class="{ 'font-bold': isActive('/My_Deck') }">
@@ -182,6 +182,7 @@ const handleNavigation = () => {
 
 .font-bold {
   font-weight: bold;
+  box-shadow: none; 
 }
 
 
