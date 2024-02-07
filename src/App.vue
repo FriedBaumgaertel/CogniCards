@@ -5,7 +5,11 @@
     <!-- App-Bar mit Menüsymbol und Titel -->
     <v-app-bar app class="white-background" rounded>
       <div class="flexbox">
+<<<<<<< HEAD
+        <v-btn text link to="/Generator" :class="{ 'font-bold': isActive('/Generator') }" class="shadow-none">
+=======
         <v-btn text variant="plain" :ripple="false" link to="/Generator" :class="{ 'font-bold': isActive('/Generator') }">
+>>>>>>> 17eb29a5133120afcccdc9d9839b1b0f5d2b9dee
           Generator
         </v-btn>
           <v-btn text variant="plain" :ripple="false" link to="/My_Deck" :class="{ 'font-bold': isActive('/My_Deck') }">
@@ -25,7 +29,7 @@
         </v-btn>
       </div>
 
-        <v-btn link to="/Sign-in" rounded dark class="sign-in-button"  >
+        <v-btn text link to="/Sign-in" rounded dark class="sign-in-button"  >
           Sign In
         </v-btn>
     </v-app-bar>
@@ -182,6 +186,7 @@ const handleNavigation = () => {
 
 .font-bold {
   font-weight: bold;
+  box-shadow: none; 
 }
 
 

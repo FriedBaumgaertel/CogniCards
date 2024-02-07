@@ -1,4 +1,9 @@
 <template>
+<<<<<<< HEAD
+    <div>hier muss der sign in dialog rein</div>
+    
+</template>
+=======
     <v-container fluid>
         <v-row>
             <!-- Left Half -->
@@ -96,3 +101,4 @@ export default {
     }
 };
 </script>
+>>>>>>> 17eb29a5133120afcccdc9d9839b1b0f5d2b9dee
