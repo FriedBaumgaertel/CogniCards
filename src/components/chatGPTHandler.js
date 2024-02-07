@@ -2,7 +2,7 @@ import OpenAI from "openai"; //das hier muss noch in vue umgeschachtelt werden
 import { createNewStack, addCardToStack } from "./dataTransferHandler";
 import { get_session_data_item } from "./crossPagePersistence";
 
-export function read_input_data(files, title, description) { // die funktionmuss evtl. in die input validation
+export async function read_input_data(files, title, description) { // die funktionmuss evtl. in die input validation
   const callHeader = 'Give me a fitting title and a short recap for each of the major points of the following text. Do not use more than two sentences per recap. Keep this structure:{ 1:{"title": <title1>, "body": <recap1>},...}:'
   const callClosure = ' Make sure your answer is a valid JSON with the format given earlier.'
 

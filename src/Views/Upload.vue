@@ -42,6 +42,8 @@ const dragging = ref(false);
 const fileInput = ref(null);
 const files = ref(null);
 
+const loading = ref(false);
+
 const handleDragOver = (event) => {
   event.preventDefault(); // This is necessary to allow for a drop
 };
@@ -70,7 +72,10 @@ const handleFileSelect = (event) => {
 const createDeck = () => {
   if(files.value){
       console.log(files.value);
-      read_input_data(files.value,deckTitle.value,deckDescription.value);
+      loading.value = true;
+      read_input_data(files.value,deckTitle.value,deckDescription.value).then(() => {
+        loading.value = false;
+      });
   }
 }
 </script>
