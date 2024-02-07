@@ -4,6 +4,7 @@ import decks from "../Views/decks.vue";
 import create from "../Views/create.vue";
 import groups from "../Views/Groups.vue";
 import account from "../Views/Account.vue";
+import Upload from "../Views/Upload.vue";
 
 
 
@@ -16,5 +17,6 @@ const routes = [
   {path: '/Generator', component: create},
   {path: '/Groups', component: groups},
   {path: '/Account', component: account},
+  {path: '/Generator/Upload', component: Upload},
 ];
 export default routes;
