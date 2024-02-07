@@ -1,7 +1,7 @@
 <template>
   <div class="p-32 flex flex-col items-center justify-evenly w-full h-full gap-8">
     <div class="flex flex-row justify-between w-full">
-      <h3>Deck Name</h3>
+      <h3>{{deckTitle}}</h3>
       <div>
         <button @click="generate=true" class="rounded-3xl w-20 border-[1px] border-black outline-0 bg-black h-8 rounded-r-none text-xs text-center" :class="{'bg-white text-black': generate, 'bg-black': !generate}">Generate</button>
         <button @click="generate=false" class="rounded-full w-20 border-[1px] border-black outline-0 bg-black h-8 rounded-l-none text-xs text-center" :class="{'bg-white text-black': !generate, 'bg-black': generate}">Manual</button>
@@ -28,7 +28,12 @@
 </template>
 <script setup>
 import {read_input_data} from "../components/chatGPTHandler.js";
-import { ref } from 'vue'
+import {onMounted, ref} from 'vue'
+
+let deckTitle = ref('Deck Title');
+onMounted(() => {
+  deckTitle.value = localStorage.getItem('title') || 'Deck Title';
+});
 let generate = ref(false);
 
 const dragging = ref(false);
