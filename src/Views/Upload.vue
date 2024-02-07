@@ -70,7 +70,7 @@ const handleFileSelect = (event) => {
 const createDeck = () => {
   if(files.value){
       console.log(files.value);
-  read_input_data(files.value,deckTitle.value,deckDescription.value);
+      read_input_data(files.value,deckTitle.value,deckDescription.value);
   }
 }
 </script>
