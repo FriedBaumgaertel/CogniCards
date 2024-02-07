@@ -1,18 +1,21 @@
 <template>
-  <div>
+
+  <div class = "center-container">
     <Card
-        :front="currentCard.front"
-        :back="currentCard.back"
+    class = "card-container"
+        :front="currentCard.vorderseite"
+        :back="currentCard.rueckseite"
         :flipped="flipped"
         @flip="flipped = !flipped"
     />
     <button @click="goToNextCard">Next</button>
-  </div>
+  </div>  
+
 </template>
 
 <script>
 import Card from '../components/Card.vue';
-
+import { fetchCloudstore } from '../components/dataTransferHandler';
 export default {
   components: {
     Card
@@ -20,8 +23,7 @@ export default {
   data() {
     return {
       cards: [
-        { front: 'Front 1', back: 'Back 1' },
-        { front: 'Front 2', back: 'Back 2' },
+        { vorderseite: 'Empty deck', rueckseite: 'Empty deck' },
         // Add more cards as needed
       ],
       currentIndex: 0,
@@ -41,7 +43,31 @@ export default {
         this.currentIndex = 0; // Loop back to the first card or handle as needed
       }
       this.flipped = false; // Reset the flip state for the new card
+    },
+    
+  },
+  mounted(){
+      let token = sessionStorage.getItem("currentToken");
+      console.log(token)
+      fetchCloudstore("stacks",token).then((stack)=>{
+        this.cards = stack.karten;
+        console.log(stack.karten);
+      });
     }
-  }
 }
 </script>
+
+<style scoped>
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust as needed */
+}
+
+.card-container {
+  /* Adjust the styling of the Card component to make it fill its container */
+  width: 40vw;
+  height: 60vh;
+}
+</style>
