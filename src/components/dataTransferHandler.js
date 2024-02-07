@@ -27,9 +27,10 @@ export async function loginUser(username, password) { // returns true if userdat
                 set_session_data_item("username", username);
                 set_session_data_item("passwort", password);
                 set_session_data_item("logged_in", true);
+                alert("Successfully logged in");
                 return true;
             } else {
-                alert("Please double check your input")
+                alert("Please double check your input");
                 return false;
             }
         });
