@@ -15,9 +15,17 @@
 import { onMounted, ref } from "vue";
 import { fetchCloudstore } from "../components/dataTransferHandler.js";
 import { get_session_data_item } from "../components/crossPagePersistence.js";
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
 let decks = ref([]);
+
 onMounted(() => {
+  let logged_in = get_session_data_item("logged_in");
+  if(!logged_in){
+    router.push('/Sign-in');
+  }
+
   let tokens = get_session_data_item("tokens");
   let token = "";
   for (const val_idx in tokens) {
@@ -30,9 +38,6 @@ onMounted(() => {
   }
 }
 )
-import { useRouter } from 'vue-router';
-
-const router = useRouter();
 
 // Method to navigate to the DeckDetails page with the deck ID
 const navigateToDeck = (name, token) => {

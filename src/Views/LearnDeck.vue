@@ -50,7 +50,9 @@ export default {
       let token = sessionStorage.getItem("currentToken");
       console.log(token)
       fetchCloudstore("stacks",token).then((stack)=>{
-        this.cards = stack.karten;
+        if(stack.karten.length > 0){
+          this.cards = stack.karten;
+        }
         console.log(stack.karten);
       });
     }

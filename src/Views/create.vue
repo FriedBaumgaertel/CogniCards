@@ -11,13 +11,24 @@
   </div>
 </template>
 <script setup>
-import { ref, watchEffect } from 'vue';
+import { ref, watchEffect, onMounted} from 'vue';
+import { useRouter } from 'vue-router';
+import { get_session_data_item } from "../components/crossPagePersistence.js";
 
 const title = ref('');
 const description = ref('');
 const has_title = ref(false);
 const has_description = ref(false);
 
+const router = useRouter();
+
+  onMounted(() => {
+    console.log("piep")
+    let logged_in = get_session_data_item("logged_in");
+    if (!logged_in) {
+      router.push('/Sign-in');
+    }
+  });
 // Load initial values from localStorage
 watchEffect(() => {
   title.value = localStorage.getItem('title') || '';
@@ -40,5 +51,7 @@ const saveToLocalStorage = (key, value) => {
       has_description.value = true;
     }
   }
+
+  
 };
 </script>
