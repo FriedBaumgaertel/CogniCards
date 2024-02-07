@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mdi/js": "^7.4.47",
     "axios": "^1.6.7",
     "mdi": "^2.2.43",
     "openai": "^4.26.1",
