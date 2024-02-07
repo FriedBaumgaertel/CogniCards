@@ -125,7 +125,7 @@ export async function modifyCardInStack(token, front_side, back_side, index) { /
 // missing functions for groups
 
 
-export function fetchCloudstore(base_url, key) {
+export async function fetchCloudstore(base_url, key) {
     return new Promise(async (resolve, reject) => {
         try {
             let url = urls_s[base_url]; // base_url == stacks / user / groups
