@@ -20,11 +20,34 @@
     </div>
     <div class="flex flex-row justify-between">
       <div></div>
-      <button>Create</button>
+      <button class="bg-blue rounded-full">Create</button>
     </div>
   </div>
 </template>
 <script setup>
 import { ref } from 'vue'
 let generate = ref(false);
+
+const dragging = ref(false);
+
+const handleDragOver = (event) => {
+  event.preventDefault(); // This is necessary to allow for a drop
+};
+
+const handleDrop = (event) => {
+  const files = event.dataTransfer.files;
+  if (files.length > 0) {
+    // Process the dropped files here
+    console.log(files[0]); // Example: log the first file
+  }
+  dragging.value = false; // Reset dragging state
+};
+
+const dragEnter = () => {
+  dragging.value = true; // Visual feedback for drag area
+};
+
+const dragLeave = () => {
+  dragging.value = false; // Reset visual feedback
+};
 </script>
