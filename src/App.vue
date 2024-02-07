@@ -5,22 +5,22 @@
     <!-- App-Bar mit Menüsymbol und Titel -->
     <v-app-bar app class="white-background" rounded>
       <div class="flexbox">
-        <v-btn text link to="/Generator" :class="{ 'font-bold': isActive('/Generator') }">
+        <v-btn text variant="plain" :ripple="false" link to="/Generator" :class="{ 'font-bold': isActive('/Generator') }">
           Generator
         </v-btn>
-          <v-btn text link to="/My_Deck" :class="{ 'font-bold': isActive('/My_Deck') }">
+          <v-btn text variant="plain" :ripple="false" link to="/My_Deck" :class="{ 'font-bold': isActive('/My_Deck') }">
           My Deck
         </v-btn>
         
         
-        <v-btn text link to="/home" class="logo-button">
+        <v-btn text variant="plain" :ripple="false" link to="/home" class="logo-button">
           <img src="/Logo.png" alt="Logo" class="logo"/>
         </v-btn>
         
-        <v-btn text link to="/Groups" :class="{ 'font-bold': isActive('/Groups') }">
+        <v-btn text variant="plain" :ripple="false" link to="/Groups" :class="{ 'font-bold': isActive('/Groups') }">
           Groups
         </v-btn>
-        <v-btn text link to="/Account" :class="{ 'font-bold': isActive('/Account') }">
+        <v-btn text variant="plain" :ripple="false" link to="/Account" :class="{ 'font-bold': isActive('/Account') }">
           Account
         </v-btn>
       </div>

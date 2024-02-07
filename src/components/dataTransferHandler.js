@@ -34,7 +34,7 @@ export async function loginUser(username, password) { // returns true if userdat
             }
         });
     } catch {
-        alert("Login unsuccessfull, try again");
+        alert("Login unsuccessfull, please try again");
         return false;
     }
 } // getested und geht
