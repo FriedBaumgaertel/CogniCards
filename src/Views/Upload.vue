@@ -61,7 +61,9 @@ const handleFileSelect = (event) => {
 };
 
 const createDeck = () => {
-  console.log(files.value);
-  read_input_data(files.value,"dummy title","dummy description");
+  if(files.value){
+      console.log(files.value);
+  read_input_data(files.value,"first A340 Page","this is completetly generated");
+  }
 }
 </script>

@@ -47,6 +47,7 @@ async function addUserTokens(newTokenName, token) {
         }
         let alle_zugriffe = get_session_data_item("tokens");
         alle_zugriffe.push(zugriff); //add new token to list
+        set_session_data_item("tokens",alle_zugriffe);
 
         let user = { //reconstruct user, to upload it again
             "zugriffe": alle_zugriffe,
