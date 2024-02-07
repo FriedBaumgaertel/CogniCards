@@ -1,9 +1,12 @@
 <template>
+  <div style="height: 10vh; width: 99vw; display: flex; justify-content: center; padding-top: 7vh; padding-right: 4vw; margin-bottom: 2vh;">
+    <div>{{ currentIndex + 1 }}/{{ cards.length }}</div>
+  </div>
   <div class="center-container">
     <Card class="card-container" :front="currentCard.vorderseite" :back="currentCard.rueckseite" :flipped="flipped"
       @flip="flipped = !flipped" />
     <button @click="goToNextCard">Next</button>
-    <div>{{ currentIndex + 1 }}/{{ cards.length }}</div>
+    
   </div>
 </template>
 
@@ -58,7 +61,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 61vh;
   /* Adjust as needed */
 }
 
