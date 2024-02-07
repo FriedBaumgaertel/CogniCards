@@ -1,4 +1,4 @@
 <template>
-    <div>hallo</div>
+    <div>hier muss der sign in dialog rein</div>
     
 </template>

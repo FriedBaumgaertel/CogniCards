@@ -1,7 +1,8 @@
 <template>
     <div style="height: 93vh; width: 99vw; background-color: #f3f3f3;">
         <v-container fluid style="height: 93vh;">
-            <div class="catchphrase">Study More Efficient With CogniCards</div>
+            <div class="catchphrase">Study More Efficient </div>
+            <div class="catchphrase"> With CogniCards</div>
         </v-container>
 
         
