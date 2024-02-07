@@ -47,6 +47,7 @@ async function addUserTokens(newTokenName, token) {
         }
         let alle_zugriffe = get_session_data_item("tokens");
         alle_zugriffe.push(zugriff); //add new token to list
+        set_session_data_item("tokens",alle_zugriffe);
 
         let user = { //reconstruct user, to upload it again
             "zugriffe": alle_zugriffe,
@@ -124,7 +125,7 @@ export async function modifyCardInStack(token, front_side, back_side, index) { /
 // missing functions for groups
 
 
-export function fetchCloudstore(base_url, key) {
+export async function fetchCloudstore(base_url, key) {
     return new Promise(async (resolve, reject) => {
         try {
             let url = urls_s[base_url]; // base_url == stacks / user / groups
