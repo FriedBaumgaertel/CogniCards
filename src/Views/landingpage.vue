@@ -66,12 +66,17 @@
         <div>
             <button @click="modCard">Modify card at idx = {{ idx }}</button>
         </div>
+
+        <hr/>
+
+        <DROPAREA/>
     </div>
 </template>
 
 <script>
 import { loginUser, createNewStack, addCardToStack, modifyCardInStack } from "../components/dataTransferHandler";
 import { get_session_data_item } from "../components/crossPagePersistence";
+import DROPAREA from "../components/droparea.vue"
 export default {
     data() {
         return {
@@ -100,6 +105,9 @@ export default {
         modCard(){
             modifyCardInStack(this.token, this.front, this.back, this.idx);
         }
+    },
+    components: {
+        DROPAREA,
     }
 };
 </script>
