@@ -384,7 +384,6 @@
 
 </template>
 
-<<<<<<< HEAD
 
 <script setup>
 
@@ -472,43 +471,3 @@ const isMini = computed(() => {
 }
 
 </style>
-=======
-<script>
-import { loginUser, createNewStack, addCardToStack, modifyCardInStack } from "../components/dataTransferHandler";
-import { get_session_data_item } from "../components/crossPagePersistence";
-import DROPAREA from "../components/droparea.vue"
-export default {
-    data() {
-        return {
-            userName: "dummy",
-            userPW: "dummy_password",
-            userLN: false,
-            desc: "",
-            stackName: "",
-            token: "5281e3a6-d45b-49a2-8e1f-9a683617f2da",
-            front: "",
-            back: "",
-            idx: 0,
-        };
-    },
-    methods: {
-        login() {
-            loginUser(this.userName, this.userPW); //der spaß ist async :D
-            this.userLN = get_session_data_item("logged_in"); // der hier eigentlich auch, aber so schnell dass es keine probleme macht
-        },
-        addStack() {
-            createNewStack(this.stackName, this.desc);
-        },
-        addCard() {
-            addCardToStack(this.token, this.front, this.back);
-        },
-        modCard(){
-            modifyCardInStack(this.token, this.front, this.back, this.idx);
-        }
-    },
-    components: {
-        DROPAREA,
-    }
-};
-</script>
->>>>>>> 42670634a213cd791f9a3ebe239c79beb9e70e78
